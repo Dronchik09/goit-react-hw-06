@@ -2,7 +2,7 @@ import { MdDelete, MdPerson, MdPhone } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contactsSlice";
 
-export default function Contact({ data }) {
+export default function Contact({ data: { id, name, number } }) {
 
   const dispatch = useDispatch();
 
@@ -15,13 +15,13 @@ export default function Contact({ data }) {
       <div>
         <p>
           <MdPerson />
-          {data.name}
+          {name}
         </p>
         <p>
-          <MdPhone /> {data.number}
+          <MdPhone /> {number}
         </p>
       </div>
-      <button onClick={() => onDelete(data.id)}>
+      <button onClick={() => onDelete(id)}>
         <MdDelete /> Delete
       </button>
     </>

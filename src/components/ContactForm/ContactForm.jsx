@@ -24,8 +24,8 @@ export default function ContactForm(){
     const dispatch = useDispatch();
 
     const handleSubmit = (values, actions) =>{
-        dispatch(addContact(values));
         values.id = nanoid();
+        dispatch(addContact(values));
         actions.resetForm();
     }
     return(
